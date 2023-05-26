@@ -1,9 +1,17 @@
 import 'package:appdev/screens/login_as_investors.dart';
+import 'package:appdev/screens/signupScreen/signup_screen_one.dart';
 import 'package:appdev/widgets/primary_button.dart';
 import 'package:appdev/widgets/secondary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+
+import '../widgets/app_logo.dart';
+import 'login_as_startup.dart';
+
+
+//ignore_for_file:prefer_const_constructors
+
 
 class MainLogin extends StatelessWidget {
   const MainLogin({super.key});
@@ -28,39 +36,63 @@ class MainLogin extends StatelessWidget {
                 ),
                 SizedBox(height: 14.27),
                 Container(
-                  height: 134.46,
-                  width: 133.18,
-                  
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Container(
-                      height: 73,
-                      width: 73,
-                      child:CircleAvatar(
-                      backgroundImage: AssetImage("assets/images/logo.png"),
-                    ),
-                    ),
-                  )
-                  
+                  // child: Padding(
+                  //   padding: const EdgeInsets.all(20.0),
+                  //   child: Container(
+                  //     height: 73,
+                  //     width: 73,
+                  //     child:CircleAvatar(
+                  //     backgroundImage: AssetImage("assets/images/logo.png"),
+                  //   ),
+                  //   ),
+                  // )
+                  child: AppLogo(
+                    Radius: 40,
+                    height: 134.46,
+                    width: 133.18,
+                    iconsize: 50,
+                  ),
                 )
-    
-                  ],
+              ],
             ),
           ),
-          SizedBox(height: 57,),
-          PrimaryButton(priText: "Login as Investors",onTap:(){
-            Navigator.push(
-    context,
-    MaterialPageRoute(
-      builder: (context) => LoginAsInvestors(), // Replace NewScreen() with your desired destination screen
-    ),
-  );
-          } ),
-          SizedBox(height: 57,),
-          PrimaryButton(priText: "Login as Startup",onTap:(){}),
-          SizedBox(height: 56,),
-          SecondaryButton(secText: "Create account",onTap: (){},)
+          SizedBox(
+            height: 57,
+          ),
+          PrimaryButton(
+              priText: "Login as Investors",
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        LoginAsInvestors(), // Replace NewScreen() with your desired destination screen
+                  ),
+                );
+              }),
+          SizedBox(
+            height: 57,
+          ),
+          PrimaryButton(
+              priText: "Login as Startup",
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          LoginAsStartUp(), // Replace NewScreen() with your desired destination screen
+                    ));
+              }),
+          SizedBox(
+            height: 56,
+          ),
+          SecondaryButton(
+            secText: "Create account",
+            onTap: () {
 
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> SignUpScreenOne()));
+            },
+          )
         ],
       ),
     );
