@@ -1,7 +1,9 @@
+import 'package:appdev/screens/investors_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
+import '../widgets/header_after_login.dart';
 import '../widgets/image_container_with_price.dart';
 
 //ignore_for_file:prefer_const_constructors
@@ -20,28 +22,15 @@ class _AfterLoginScreenState extends State<AfterLoginScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              height: 166.37,
-              width: 433,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Icon(
-                    Icons.account_tree,
-                    size: 50,
-                    color: Colors.blue,
-                  ),
-                  Text(
-                    "Sahakosh Startups",
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
-                  Icon(
-                    Icons.notifications,
-                    size: 40,
-                  )
-                ],
-              ),
-            ),
+
+          InkWell(child: HeaderAfterLogin(title: 'Sahakosh Investors',)
+          ,
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context){
+              return InvestorsDetailsScreen();
+            }));
+          },
+          ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
